@@ -1,0 +1,2 @@
+### ¤¤¤ Add all files to tracking EXCEPT these ¤¤¤
+git add -A ':!output/*' ':!src/test/*' ':!documents/*' ':!src/train.py' ':!src/utils/z_modules.py' ':!commands.txt'

@@ -1,0 +1,31 @@
+# Hyper parameters for extraction of features. Each input unit consists of 
+
+# Number of cardiac cycles in each network input unit (a segment)
+n_cycles_per_seg: 4
+
+# By how many cycles should the input segments overlap
+n_cycles_overlap: 2
+
+# Number of segments to extract from each audio file (resampling if nessecary)
+n_segments_per_audio: 7
+
+# Target audio sampling rate
+audio_sr: 2205
+
+# *** Mel frequency cepstrum coefficients ***
+# Window function
+window: "hann"
+
+# Window length
+window_len: 0.025
+
+# Window overlap
+window_overlap: 0.010
+
+# Number of MFCCs to represent the audio
+n_mfcc: 13
+
+# RNN input length
+n_rnn_input: 200
+
+

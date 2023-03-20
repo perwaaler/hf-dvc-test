@@ -1,0 +1,46 @@
+# Set whether or not to resample murmurs in order to balance classes
+balance_classes_train: True
+balance_classes_valid: True
+use_additional_features: False
+target: "AS_clinical"
+rnn_features: "rnn_inputs_mod"
+# target: ["mur1_presence", "mur2_presence", "mur3_presence", "mur4_presence"]
+
+# Parameters for data partitioning
+n_folds: 8
+test_size: 0.15
+thr_class: 1  # Threshold that separates the target class
+thr_relation: ">="  # Determines relation between target class and threshold
+class_ratio: 0.5  # Ratio of positive to negative class after resampling
+
+# Training parameters
+batch_size: 32
+
+# Regularization parameters
+n_epochs_per_lr_drop: 3 # N.o. epochs after which learning rate is decreased
+decay_rate: 0.5 # Factor by which learning rate decays
+init_learning_rate: 0.002
+n_epochs: 30
+dropout_percentage: 0.5
+patience: 5
+start_from_epoch: 10 # Epoch that initiates metric montioring for early stoppage
+monitor_metric: "val_loss"
+
+# Model architecture
+# Inpute shape (column number == length of RNN input-sequence)
+mfcc_size: [13, 200]
+mfcc_mod_size: [18, 200]
+# Number of nodes
+n_nodes_lstm_1: 50
+n_nodes_lstm_2: 50
+n_nodes_fully_connected: 30
+n_nodes_final: 1
+
+# Model compilation
+activation: None
+loss: "mse"
+metric: "mse"
+
+# Other options
+verbose: 1
+metric_to_plot: "val_loss"
