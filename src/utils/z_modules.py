@@ -221,9 +221,10 @@ def get_auc_and_plot_roc(
     """Computes the AUC and, optionally, plots ROC curve."""
     fpr, tpr, thresholds = roc_curve(binary_target, scores)
     auc = roc_auc_score(y_true=binary_target, y_score=scores)
-    if ax_plot is not None:
-        ax_plot.plot(fpr, tpr, c=color)
-        ax_plot.set_title(f"AUC: {auc:.2}", size=PlotPar["sz_txt_roc"])
+    if ax_plot is None:
+        ax_plot = plt.subplots(1, 1)[-1]
+    ax_plot.plot(fpr, tpr, c=color)
+    ax_plot.set_title(f"AUC: {auc:.2}", size=PlotPar["sz_txt_roc"])
 
     return auc
 

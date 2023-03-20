@@ -195,7 +195,7 @@ def rename_and_define_variables(t7data):
             # If you get chest pain while walking up uphill, do you: 1) stop, 2)
             # slow down, 3) carry on at same pace
             "CHEST_PAIN_ACTION_T7": "chestpain_action",
-            "SMOKE_DAILY_Q2_T7": "smoke_daily",
+            "SMOKE_DAILY_Q2_T7": "smoking",  # 1: current, 2: previous, 3: never
             # Do you (lvl 2) or have you had (lvl 3) ...
             "HEART_ATTACK_T7": "heart_attack",  # ... a heart attack?
             "HEART_FAILURE_T7": "heart_failure",  # ... heart failure?
@@ -222,6 +222,11 @@ def rename_and_define_variables(t7data):
     t7data["angina_or_dyspnea"] = or_recursive(
         [t7data.dyspnea_resting_or_walking, t7data.angina]
     )
+    t7data["smoking_now"] = compare(t7data["smoking"], "==", 1)
+    t7data["smoking_before"] = compare(t7data["smoking"], "==", 2)
+    t7data["smoking_never"] = compare(t7data["smoking"], "==", 3)
+    t7data["smoking_now_or_before"] = compare(t7data["smoking"], "<", 3)
+    
     # Chest pain, currently or previously, walking at normal pace on level
     # ground or during light activity (walking up stairs etc...)
     t7data["chest_pain_any"] = or_recursive([

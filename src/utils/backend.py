@@ -11,12 +11,12 @@ import yaml
 # Directory paths
 ROOT_DIR = pathlib.Path(__file__).parents[3]
 DATA_DIR = os.path.join(ROOT_DIR, "data")
-OUTPUT_DIR = os.path.join(ROOT_DIR, "heartfailure/output")
+OUTPUT_DIR = os.path.join(ROOT_DIR, "hf-dvc-test/output")
 AUDIO_DIR = os.path.join(ROOT_DIR, "data/heart-sounds/T7")
 
 # Parameter paths
 TABULAR_DATA_PATH = os.path.join(DATA_DIR, "tabular-data/T7_heartSounds_variables.csv")
-PARAM_FOLDER_PATH =  os.path.join(ROOT_DIR, "heartfailure/src/params")
+PARAM_FOLDER_PATH =  os.path.join(ROOT_DIR, "hf-dvc-test/src/params")
 FEATURIZATION_PARAMS_PATH = os.path.join(PARAM_FOLDER_PATH, "featurization.yml")
 TRAINING_PARAMS_PATH = os.path.join(PARAM_FOLDER_PATH, "training.yml")
 PLOTTING_PARAMS_PATH = os.path.join(PARAM_FOLDER_PATH, "plotting.yml")
